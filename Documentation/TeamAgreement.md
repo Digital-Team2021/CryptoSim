@@ -92,9 +92,9 @@
 
 * What is your Git flow?
    
-   Development Branch from main.
+   Stage Branch from main.
 
-   subbranches from development branch.
+   Subbranches from development branch.
 
    PR and merge after each task completion.
 

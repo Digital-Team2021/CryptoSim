@@ -22,15 +22,17 @@ What is Cryptocurrency :A web application project that allows you to simulate in
 
 1. Providing an interactive homepage that show top five conies and trending news about it
 
-2. Login page that  allow to the user to register at the first time then the user can make a login.
+2. Login page that allow the user to login.
 
-3. Wallet page that show your credit and coins.
+3. Register page to allow the user to register at the first time.
 
-4. Market page that show the  fifty coins.
+4. Wallet page that show your credit and coins.
 
-5. Trade page that show a dynamic details for each coins ,so you can buy and sell from it.
+5. Market page that show the  fifty coins.
 
-6. About us page that show  short details about our team
+6. Trade page that show a dynamic details for each coins ,so you can buy and sell from it.
+
+7. About us page that show  short details about our team
 
 
 
