@@ -1,6 +1,6 @@
 # DigitalTeam
 ## Idea
-### Students Names:
+### Members Names:
 1. Ahmed Zatar
 2. Hala khamayseh
 3. Aseel Farrar
