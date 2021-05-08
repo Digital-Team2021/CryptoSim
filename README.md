@@ -5,7 +5,7 @@
 2. Hala khamayseh
 3. Aseel Farrar
 4. Ebrahim Ayyad
-5. obada Alhawjreh
+5. Obada Alhawjreh
 
 ## Project description:
 What is Cryptocurrency :A web application project that allows you to simulate investment in cryptocurrency .
