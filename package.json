@@ -1,0 +1,29 @@
+{
+  "name": "cryptosim",
+  "version": "1.0.0",
+  "description": "## Members Names: 1. Ahmed Zatar 2. Hala khamayseh 3. Aseel Farrar 4. Ebrahim Ayyad 5. obada Alhawjreh",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Digital-Team2021/CryptoSim.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Digital-Team2021/CryptoSim/issues"
+  },
+  "homepage": "https://github.com/Digital-Team2021/CryptoSim#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^9.0.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "method-override": "^3.0.0",
+    "pg": "^8.6.0",
+    "superagent": "^6.1.0"
+  }
+}

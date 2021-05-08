@@ -1,4 +1,4 @@
-# Cryptocurrency
+# CryptoSim
 
 ## Members Names:
 1. Ahmed Zatar
@@ -8,7 +8,7 @@
 5. obada Alhawjreh
 
 ## Project description:
-What is Cryptocurrency :A web application project that allows you to simulate investment in cryptocurrency .
+What is CryptoSim :A web application project that allows you to simulate investment in cryptocurrency .
 
 ## Problem Domain:
 
