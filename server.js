@@ -176,56 +176,69 @@ function tradeHandler(req, res) {
 function buyHandler(req, res) {
 
   let buyData = req.body;
-  let SQL = `SELECT * FROM coins_info WHERE coinName = $1 AND name= $2;`;
-  let safeValue = [buyData.coinName, buyData.name];
-  client.query(SQL, safeValue)
-    .then(data => {
 
-      if (data.rows.length===0) {
-        console.log('hello');
-        let SQL3 = `INSERT INTO coins_info (name,coinName,amount) VALUES ($1,$2,$3);`;
-        let insertAmount = Number(buyData.amount) / Number(buyData.price);
+  let SQL8 = `SELECT * FROM coins_info WHERE coinName = $1 AND name= $2;`;
+  let safeValue8 = ['usd', buyData.name];
+  client.query(SQL8, safeValue8)
+    .then((data4) => {
+      if (Number(req.body.amount) < Number(data4.rows[0].amount)) {
+        let SQL = `SELECT * FROM coins_info WHERE coinName = $1 AND name= $2;`;
+        let safeValue = [buyData.coinName, buyData.name];
+        client.query(SQL, safeValue)
+          .then(data => {
 
-        let safeValue3 = [buyData.name, buyData.coinName, insertAmount.toFixed(7)];
-        client.query(SQL3, safeValue3)
-          .then(() => {
-            let SQL6 = `SELECT * FROM coins_info WHERE coinName = $1 AND name= $2;`;
-            let safeValue6 = ['usd', buyData.name];
-            client.query(SQL6, safeValue6)
-              .then(data3 => {
-                let SQL7 = 'UPDATE coins_info SET amount=$1 WHERE coinName = $2 AND name= $3;';
-                let uppdatedUSD3 = Number(data3.rows[0].amount) - Number(buyData.amount);
-                let safeValue7 = [uppdatedUSD3.toFixed(7), 'usd', buyData.name];
-                client.query(SQL7, safeValue7)
-                  .then(() => {
-                    res.redirect('/wallet');
-                  });
+            if (data.rows.length === 0) {
 
-              });
+
+
+              let SQL3 = `INSERT INTO coins_info (name,coinName,amount) VALUES ($1,$2,$3);`;
+              let insertAmount = Number(buyData.amount) / Number(buyData.price);
+
+              let safeValue3 = [buyData.name, buyData.coinName, insertAmount.toFixed(7)];
+              client.query(SQL3, safeValue3)
+                .then(() => {
+                  let SQL6 = `SELECT * FROM coins_info WHERE coinName = $1 AND name= $2;`;
+                  let safeValue6 = ['usd', buyData.name];
+                  client.query(SQL6, safeValue6)
+                    .then(data3 => {
+                      let SQL7 = 'UPDATE coins_info SET amount=$1 WHERE coinName = $2 AND name= $3;';
+                      let uppdatedUSD3 = Number(data3.rows[0].amount) - Number(buyData.amount);
+                      let safeValue7 = [uppdatedUSD3.toFixed(7), 'usd', buyData.name];
+                      client.query(SQL7, safeValue7)
+                        .then(() => {
+                          res.redirect('/wallet');
+                        });
+
+                    });
+
+                });
+
+
+            } else {
+              let SQL2 = 'UPDATE coins_info SET amount=$1 WHERE coinName = $2 AND name= $3;';
+              let updatedAmount = Number(data.rows[0].amount) + Number(buyData.amount) / Number(buyData.price);
+              let safeValue2 = [updatedAmount.toFixed(7), buyData.coinName, buyData.name];
+              client.query(SQL2, safeValue2)
+                .then(() => {
+                  let SQL4 = `SELECT * FROM coins_info WHERE coinName = $1 AND name= $2;`;
+                  let safeValue4 = ['usd', buyData.name];
+                  client.query(SQL4, safeValue4)
+                    .then(data2 => {
+                      let SQL5 = 'UPDATE coins_info SET amount=$1 WHERE coinName = $2 AND name= $3;';
+                      let uppdatedUSD1 = Number(data2.rows[0].amount) - Number(buyData.amount);
+                      let safeValue5 = [uppdatedUSD1.toFixed(7), 'usd', buyData.name];
+                      client.query(SQL5, safeValue5)
+                        .then(() => {
+                          res.redirect('/wallet');
+                        });
+                    });
+                });
+
+            }
 
           });
-
-
-      } else {
-        let SQL2 = 'UPDATE coins_info SET amount=$1 WHERE coinName = $2 AND name= $3;';
-        let updatedAmount = Number(data.rows[0].amount) + Number(buyData.amount) / Number(buyData.price);
-        let safeValue2 = [updatedAmount.toFixed(7), buyData.coinName, buyData.name];
-        client.query(SQL2, safeValue2)
-          .then(() => {
-            let SQL4 = `SELECT * FROM coins_info WHERE coinName = $1 AND name= $2;`;
-            let safeValue4 = ['usd', buyData.name];
-            client.query(SQL4, safeValue4)
-              .then(data2 => {
-                let SQL5 = 'UPDATE coins_info SET amount=$1 WHERE coinName = $2 AND name= $3;';
-                let uppdatedUSD1 = Number(data2.rows[0].amount) - Number(buyData.amount);
-                let safeValue5 = [uppdatedUSD1, 'usd', buyData.name];
-                client.query(SQL5, safeValue5)
-                  .then(() => {
-                    res.redirect('/wallet');
-                  });
-              });
-          });
-
+      }else{
+        console.log('succes');
       }
     });
 
