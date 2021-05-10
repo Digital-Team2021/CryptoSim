@@ -4,5 +4,5 @@ $('#updateBut').on('click', handler);
 function handler(){
 
   $('#updateForm').toggle();
-  
+
 }
