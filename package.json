@@ -20,11 +20,12 @@
   "homepage": "https://github.com/Digital-Team2021/CryptoSim#readme",
   "dependencies": {
     "cors": "^2.8.5",
-    "dotenv": "^9.0.0",
+    "dotenv": "^9.0.1",
     "ejs": "^3.1.6",
     "express": "^4.17.1",
     "method-override": "^3.0.0",
     "pg": "^8.6.0",
     "superagent": "^6.1.0"
-  }
+  },
+  "devDependencies": {}
 }
