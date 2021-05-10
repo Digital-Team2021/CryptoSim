@@ -77,7 +77,7 @@ function marketHandler(req, res) {
         return new Coins(item);
       });
 
-      console.log(coinsArray)
+      
 
       res.render('pages/market', { coins: coinsArray });
     }).catch(error => {
@@ -344,7 +344,7 @@ function profileHandler(req, res) {
             password: userData.password,
             amount: usdAmount
           };
-          console.log(obj);
+        
           res.render('pages/profile', { user: obj });
         });
 
@@ -393,7 +393,6 @@ function walletHandler(req, res) {
   client.query(SQL, safeValue)
     .then(async (data) => {
       let listData = data.rows;
-      console.log(listData);
 
       const coinOpjArr = await Promise.all(listData.map(async (item, i) => {
         if (item.coinname === 'usd') return {
@@ -404,7 +403,7 @@ function walletHandler(req, res) {
         let url = `https://api.coingecko.com/api/v3/coins/${item.coinname}?localization=false`;
         const data = await superagent.get(url)
 
-        // console.log(item.coinname);
+        
         let obj = {
           id: data.body.id,
           price: data.body.market_data.current_price.usd,
@@ -425,7 +424,7 @@ function walletHandler(req, res) {
       })
 
       let objBalance={
-        balance:totalBalance
+        balance:totalBalance.toFixed(7)
       }
     
       res.render('pages/wallet',{walletinfo:walletData,total:objBalance});
