@@ -16,13 +16,13 @@
 
       <div class="chart">
         <script src="https://widgets.coingecko.com/coingecko-coin-compare-chart-widget.js"></script>
-        <coingecko-coin-compare-chart-widget coin-ids="bitcoin" currency="usd" locale="en">
+        <coingecko-coin-compare-chart-widget coin-ids="<%=coin.id%>" currency="usd" locale="en">
         </coingecko-coin-compare-chart-widget>
       </div>
 
       <div class="excange">
         <script src="https://widgets.coingecko.com/coingecko-coin-converter-widget.js"></script>
-        <coingecko-coin-converter-widget coin-id="bitcoin" currency="usd" background-color="#FFFFFF"
+        <coingecko-coin-converter-widget coin-id="<%=coin.id%>" currency="usd" background-color="#FFFFFF"
           font-color="#4C4C4C" locale="en"></coingecko-coin-converter-widget>
       </div>
       <div class="btnContainer">
@@ -33,7 +33,7 @@
         <section class="buy">
           <form action="/buy?_method=put" method="POST">
             <label for="amount"></label>
-            <input type="number" name="amount" id="amount">
+            <input type="number" name="amount" id="amount" step="any">
             <input type="hidden" name="name" class="userNameBuy">
             <input type="hidden" name="price" value="<%=coin.price%>">
             <input type="hidden" name="coinName" value="<%=coin.id%>">
@@ -43,9 +43,12 @@
         </section>
 
         <section class="sell">
-          <form action="">
+          <form action="/sell?_method=put" method="POST">
             <label for="amount"></label>
-            <input type="number" name="amount" id="amount">
+            <input type="number" name="amount" id="amount" step="any">
+            <input type="hidden" name="name" class="userNameBuy">
+            <input type="hidden" name="price" value="<%=coin.price%>">
+            <input type="hidden" name="coinName" value="<%=coin.id%>">
             <button>Sell</button>
           </form>
         </section>
