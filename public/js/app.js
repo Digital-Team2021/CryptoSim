@@ -3,11 +3,14 @@
 let login = localStorage.getItem('login');
 let userName = localStorage.getItem('userName');
 
+$('.username').attr('href',`/profile/${userName}`);
+$('.wallet').attr('href',`/wallet/${userName}`);
+
 
 if(parseInt(login)===1){
 
   $('.rlwHideandShow').hide();
-  $('.username').text(userName);
+  $('.username').text(`${userName} (profile)`);
 
 }else{
   $('.wallet').hide();
