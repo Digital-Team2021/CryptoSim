@@ -77,6 +77,8 @@ function marketHandler(req, res) {
         return new Coins(item);
       });
 
+      console.log(coinsArray)
+
       res.render('pages/market', { coins: coinsArray });
     }).catch(error => {
       console.log(error);
@@ -391,11 +393,9 @@ function walletHandler(req, res) {
   client.query(SQL, safeValue)
     .then(async (data) => {
       let listData = data.rows;
-      let coinsNameArray = [];
-      let allCoinsDataArray = [];
-      // console.log(listData);
+      console.log(listData);
 
-      const x = await Promise.all(listData.map(async (item, i) => {
+      const coinOpjArr = await Promise.all(listData.map(async (item, i) => {
         if (item.coinname === 'usd') return {
           id: 'usd',
           price: 1,
@@ -414,9 +414,21 @@ function walletHandler(req, res) {
 
       }))
 
-      res.send(x);
+      let totalBalance = 0;
+      let walletData=listData.map((item,i)=>{
 
+        return new Wallet(item,coinOpjArr[i])
+      })
+      
+      walletData.forEach((item)=>{
+        totalBalance=totalBalance+Number(item.value);
+      })
 
+      let objBalance={
+        balance:totalBalance
+      }
+    
+      res.render('pages/wallet',{walletinfo:walletData,total:objBalance});
 
     });
 
@@ -439,6 +451,14 @@ function errorHandler(req, res) {
 function News(obj) {
   this.title = obj.title;
   this.url = `https://${obj.source.domain}/${obj.slug}`;
+}
+
+function Wallet(objlist,objcoin){
+  this.coinName = objlist.coinname;
+  this.img=objcoin.img;
+  this.amount=objlist.amount;
+  this.value=(Number(objlist.amount)*Number(objcoin.price)).toFixed(7)
+
 }
 
 function Coins(obj) {
