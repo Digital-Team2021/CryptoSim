@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CryptoSim Home Page</title>
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
     <%- include('../layout/header') %>
@@ -16,13 +16,24 @@
         <div class="coinsWallet">
             <h2>Your Coins</h2>
             <div>
-                <h3>Coin</h3>
+                <h3>Coin </h3>
                 <h3>Amount</h3>
                 <h3>Value</h3>
                 <h3>Trade</h3>
-                <ul>
+                
+                    <% walletinfo.forEach(element => { %>
+                    <ul> 
+                        <li><img src="<%= element.img %>" alt="walletCoins" width="20" height="20"></li>
+                        <li><%= element.coinName %></li>
+                        <li><%= element.amount %></li>  
+                        <li><%= element.value %> $</li>
+                        <li><a href="/trade/<%= element.coinName %>">Trade</a></li>  
+
+                    </ul>
+                
+                   <% }) %>   
                     
-                </ul>
+                
 
             </div>
 

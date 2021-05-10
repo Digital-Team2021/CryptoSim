@@ -23,18 +23,47 @@
                         <th>Rank</th>
                         <th>coin </th>
                         <th>symbol</th>
+                        <th>img </th>
                         <th>price </th>
-                        <th>24h </th>
-                        <th>last 7 days</th>
+                        <th> 24h change </th>
+                        <th>last 7 days chart</th>
                         <th>trade</th>
                     </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
+
+                    <% coins.forEach(item=>{%>
+                        <tr>
+                            <td>
+                                <%= item.rank%>
+                            </td>
+                            <td>
+                                <%= item.id%>
+                            </td>
+                            <td>
+                                <%= item.symbol%>
+                            </td>
+                            <td>
+                                <img src="<%= item.img%>" alt="" srcset="">
+                            </td>
+                            <td>
+                                <%= item.price%>
+                            </td>
+                            <td>
+                                <%= item.change%>
+                            </td>
+                            <td>
+                                <img src="<%= item.chart%>" alt="" srcset="">
+
+                            </td>
+                            <td>
+        
+                                <a href="/trade/<%=item.id%>">trade</a>
+                            </td>
+
+                        </tr>
+                        <%});%>
+
                 </table>
-          </div>
+            </div>
         </main>
         <%- include('../layout/footer') %>
             <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
