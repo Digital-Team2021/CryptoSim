@@ -16,17 +16,60 @@
         </div>
         <div class="mainNews">
             <ul class="firstNews">
-                
+                <% for(let i = 0;i < 2;i ++){ %>
+                <li><a href="<%= news[i].url %>"> <%= news[i].title %> </a></li>
+              <%  } %>
             </ul>
             <ul class="restNews">
-
+                <% for(let i = 2;i < news.length;i ++){ %>
+                    <li class="news"><a href="<%= news[i].url %>"> <%= news[i].title %> </a></li>
+                  <%  } %>
             </ul>
             <button id="newButton">More News</button>
         </div>
         <div class="mainCoins">
-            <ul>
+                <table>
+                    <tr>
+                        <th>Rank</th>
+                        <th>coin </th>
+                        <th>symbol</th>
+                        <th>img </th>
+                        <th>price </th>
+                        <th>24h change </th>
+                        <th>last 7 days chart</th>
+                        <th>trade</th>
+                    </tr>
 
-            </ul>
+                    <% trend.forEach(item=>{%>
+                        <tr>
+                            <td>
+                                <%= item.rank%>
+                            </td>
+                            <td>
+                                <%= item.id%>
+                            </td>
+                            <td>
+                                <%= item.symbol%>
+                            </td>
+                            <td>
+                                <img src="<%= item.img%>" alt="" srcset="">
+                            </td>
+                            <td>
+                                <%= item.price%>
+                            </td>
+                            <td>
+                                <%= item.change%>
+                            </td>
+                            <td>
+                                <img src="<%= item.chart%>" alt="" srcset="">
+                            </td>
+                            <td>
+        
+                                <a href="/trade/<%=item.id%>">trade</a>
+                            </td>
+                        </tr>
+                        <%});%>
+                </table>
         </div>
     </main>
     <%- include('../layout/footer') %>
@@ -34,5 +77,6 @@
     
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
             <script src="/js/app.js"></script>
+            <script src="/js/home.js"></script>
 </body>
 </html>
