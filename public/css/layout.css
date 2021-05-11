@@ -1,0 +1,52 @@
+
+@media  (min-width: 767px){
+   /* header */
+   header{
+       position: fixed;
+       width: 100%;
+       top:0;
+   }
+   header nav{
+       width: 100%;
+       display: flex;
+       flex-direction:row;
+       justify-content: space-between;
+       padding-top: 10px;
+       padding-bottom: 10px;
+
+   }
+   .logo img{
+       margin-left: 15px;
+       width: 70px;
+       height: 70px;
+   }
+   .logo{
+       display: flex;
+       flex-direction:row;
+       justify-content: center; 
+       align-items: center;
+       
+   }
+       
+ 
+ .hmw{
+     display: flex;
+       flex-direction:row;
+       justify-content: space-between; 
+       margin-left: 15px;
+ }
+ .rl{
+        display: flex;
+       flex-direction:column;
+       justify-content:space-evenly;  
+       margin-right: 15px; 
+      
+ }
+ header li{
+     padding: 3px 15px;
+ }
+ /* header */
+}
+
+
+

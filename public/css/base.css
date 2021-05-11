@@ -1,0 +1,14 @@
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,400,600");
+@import url('https://fonts.googleapis.com/css2?family=Oswald&family=Roboto+Slab&display=swap');
+*{
+    box-sizing: border-box;
+    margin: 0;
+}
+header,footer{
+     font-family:Oswald;
+}
+body{
+width:100%; 
+font-family: "Audiowide", sans-serif;
+   
+}
