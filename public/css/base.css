@@ -1,14 +1,24 @@
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,400,600");
 @import url('https://fonts.googleapis.com/css2?family=Oswald&family=Roboto+Slab&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Domine&display=swap');
+
 *{
     box-sizing: border-box;
     margin: 0;
+    text-decoration: none;
 }
 header,footer{
-     font-family:Oswald;
+    font-family: 'Domine', serif;
 }
 body{
 width:100%; 
 font-family: "Audiowide", sans-serif;
    
 }
+
+
+
+
+
+
