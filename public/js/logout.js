@@ -5,7 +5,7 @@ localStorage.setItem('login', 0);
 
 setTimeout(() => {
 
-  window.location.href = '/login';
+  window.location.href = '/';
 
 }, 5000);
 
