@@ -100,8 +100,11 @@ function loginHandler(req, res) {
 
 function registerFinishHandler(req, res) {
   let data = Object.values(req.body);
+  let username= data[0].trim()
+
   let SQL = `SELECT * FROM personal_info WHERE name= $1 OR email= $2;`;
-  let safeValue2 = [data[0], data[1]];
+  let safeValue2 = [username, data[1]];
+
   client.query(SQL, safeValue2)
     .then(data2 => {
       if (data2.rows.length !== 0) {
@@ -116,11 +119,11 @@ function registerFinishHandler(req, res) {
         }
         else {
           let query = `INSERT INTO personal_info (name,email,password) VALUES ($1,$2,$3);`;
-          let safeValue = [data[0], data[1], data[2]];
+          let safeValue = [username, data[1], data[2]];
           client.query(query, safeValue)
             .then(() => {
               let query2 = `INSERT INTO coins_info (name,coinName,amount) VALUES ($1,$2,$3);`;
-              let safeValue2 = [data[0], 'usd', data[4]];
+              let safeValue2 = [username, 'usd', data[4]];
               client.query(query2, safeValue2)
                 .then(() => {
 
@@ -187,6 +190,9 @@ function tradeHandler(req, res) {
 
       res.render('pages/trade', { coin: coinInfo });
 
+    }).catch(error => {
+      console.log(error);
+      res.render('pages/error');
     });
 
 }
@@ -199,7 +205,7 @@ function buyHandler(req, res) {
   let safeValue8 = ['usd', buyData.name];
   client.query(SQL8, safeValue8)
     .then((data4) => {
-      if (Number(req.body.amount) < Number(data4.rows[0].amount)) {
+      if (Number(req.body.amount) <= Number(data4.rows[0].amount)) {
         let SQL = `SELECT * FROM coins_info WHERE coinName = $1 AND name= $2;`;
         let safeValue = [buyData.coinName, buyData.name];
         client.query(SQL, safeValue)
@@ -228,10 +234,19 @@ function buyHandler(req, res) {
                             coinName: buyData.coinName
                           };
                           res.render('pages/finishTrade', { msg: obj });
+                        }).catch(error => {
+                          console.log(error);
+                          res.render('pages/error');
                         });
 
+                    }).catch(error => {
+                      console.log(error);
+                      res.render('pages/error');
                     });
 
+                }).catch(error => {
+                  console.log(error);
+                  res.render('pages/error');
                 });
 
 
@@ -255,8 +270,17 @@ function buyHandler(req, res) {
                             coinName: buyData.coinName
                           };
                           res.render('pages/finishTrade', { msg: obj });
+                        }).catch(error => {
+                          console.log(error);
+                          res.render('pages/error');
                         });
+                    }).catch(error => {
+                      console.log(error);
+                      res.render('pages/error');
                     });
+                }).catch(error => {
+                  console.log(error);
+                  res.render('pages/error');
                 });
 
             }
@@ -269,6 +293,9 @@ function buyHandler(req, res) {
         };
         res.render('pages/finishTrade', { msg: obj });
       }
+    }).catch(error => {
+      console.log(error);
+      res.render('pages/error');
     });
 
 }
@@ -313,14 +340,26 @@ function sellHandler(req, res) {
                         coinName: sellData.coinName
                       };
                       res.render('pages/finishTrade', { msg: obj });
+                    }).catch(error => {
+                      console.log(error);
+                      res.render('pages/error');
                     });
 
+                }).catch(error => {
+                  console.log(error);
+                  res.render('pages/error');
                 });
 
+            }).catch(error => {
+              console.log(error);
+              res.render('pages/error');
             });
         }
       }
 
+    }).catch(error => {
+      console.log(error);
+      res.render('pages/error');
     });
 
 }
@@ -336,6 +375,7 @@ function profileHandler(req, res) {
       let safeValue2 = [name, 'usd'];
       client.query(SQL2, safeValue2)
         .then(data2 => {
+          
           let usdAmount = data2.rows[0].amount;
           let obj = {
             id: userData.id,
@@ -346,8 +386,14 @@ function profileHandler(req, res) {
           };
         
           res.render('pages/profile', { user: obj });
+        }).catch(error => {
+          console.log(error);
+          res.render('pages/error');
         });
 
+    }).catch(error => {
+      console.log(error);
+      res.render('pages/error');
     });
 }
 
@@ -365,8 +411,14 @@ function updateUserHandler(req, res) {
       client.query(SQL2, safeValue2)
         .then(() => {
           res.redirect(`/profile/${name}`);
+        }).catch(error => {
+          console.log(error);
+          res.render('pages/error');
         });
 
+    }).catch(error => {
+      console.log(error);
+      res.render('pages/error');
     });
 }
 
@@ -381,7 +433,13 @@ function deleteUserHandler(req, res) {
       client.query(SQL2, safeValue2)
         .then(() => {
           res.redirect(`/logout`);
+        }).catch(error => {
+          console.log(error);
+          res.render('pages/error');
         });
+    }).catch(error => {
+      console.log(error);
+      res.render('pages/error');
     });
 }
 
@@ -429,6 +487,9 @@ function walletHandler(req, res) {
     
       res.render('pages/wallet',{walletinfo:walletData,total:objBalance});
 
+    }).catch(error => {
+      console.log(error);
+      res.render('pages/error');
     });
 
 }
