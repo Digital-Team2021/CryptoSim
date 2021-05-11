@@ -38,6 +38,38 @@ background: linear-gradient(to right, #434343, #000000); /* W3C, IE 10+/ Edge, F
     footer a:hover{
         color: #7b10b0;
     }
+
+    /* main */
+
+
+    body{
+
+        background: #bdc3c7;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to top, #a0a3a7, white);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to top, #a0a3a7, white); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        
+
+        
+    }
+
+    .mainimg{
+
+        color: #7b10b0;
+
+        background-size: cover;
+        
+        font-size: xx-large;
+        font-weight: bolder;
+        /* background-repeat: no-repeat; */
+    
+        background-image: url("/assets/img/crypto-currencies.png");
+    }
+
+    .mainimg h1{
+        background-color: white;
+        text-shadow: 2px 2px black;
+        opacity: 80%;
+    }
     
 
 }
