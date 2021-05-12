@@ -150,6 +150,16 @@
     justify-content: space-between;
     margin-top: 10px;
 }
+
+.contact h3{
+    margin-right: 13px;
+}
+
+footer img{
+    margin: 0px 5px;
+}
+
+
 footer img:hover{
     transform: scale(2);
 }
