@@ -215,13 +215,14 @@ footer img:hover{
     border-color: linear-gradient(to top, #a0a3a7, white); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     font-weight: bold;
     
+    
 }
 
 .table_data{
     height: 40px;
     line-height: 40px;
     background-color: white;
-
+  vertical-align: middle;
     border: 5px solid;
 
     border-color: #bdc3c7;  /* fallback for old browsers */
@@ -231,7 +232,9 @@ footer img:hover{
     
 
 }
-
+.table_data td{
+      vertical-align: middle;
+}
 .table_data a{
     color: black;
     font-weight: bold;
@@ -284,9 +287,10 @@ footer img:hover{
     color: white;
     position: relative;
     left: 20px;
-    height: 25px;
+    /* height: 25px; */
     width: 15%;
     border-radius: 3px;
+  font-size: 12px;
 }
 
 #LessButton{
@@ -294,12 +298,60 @@ footer img:hover{
     color: white;
     position: relative;
     left: 20px;
-    height: 25px;
+    /* height: 25px; */
     width: 15%;
     border-radius: 3px;
+   
+      font-size: 12px;
+}
+.marketPage{
+     display: flex;
+     flex-direction:row;
+     margin: auto;
+     margin-top: 15px;
+     margin-bottom: 15px;
+     justify-content:space-between;
+     width: 75%;
+      
+     
+}
+.previousPage2{
+    display: flex;
+    background-color: rgb(70, 69, 69);
+  color:white;
+  /* padding: 2px 6px 2px 6px; */
+  border: 1px solid rgb(70, 69, 69);
+  border-radius: 3px;
+  padding-left: 5px;
+  padding-right: 5px;
+  font-size: 12px;
+ justify-content: center;
+ height:25px;
+ line-height: 25px;
+  
+
 }
 
-
+.nextPage{
+   display: flex;
+   width: 90px;
+  background-color: rgb(70, 69, 69);
+  color:white;
+  border: 1px solid rgb(70, 69, 69);
+  border-radius: 3px;
+  padding-left: 5px;
+  padding-right: 5px;
+  font-size: 12px;
+ justify-content: center;
+ height:25px;
+ line-height: 25px;
+   
+}
+/* .marketPage a:hover{
+    color: #7b10b0;
+    font-weight: bold;
+    background-color: white;
+} */
 }
 
 

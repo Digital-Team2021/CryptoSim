@@ -14,13 +14,13 @@
 
     <%- include('../layout/header') %>
         <main>
-            <div class="searchandsort">
+            <!-- <div class="searchandsort">
                 <button>Search</button>
                 <button>Sort</button>
-            </div>
-            <div class="marketTable">
-                <table>
-                    <tr>
+            </div> -->
+            <div class="mainCoins">
+                <table class="coins_table">
+                    <tr class="table_header">
                         <th>Rank</th>
                         <th>coin </th>
                         <th>symbol</th>
@@ -32,7 +32,7 @@
                     </tr>
 
                     <% coins.forEach(item=>{%>
-                        <tr>
+                        <tr class="table_data">
                             <td>
                                 <%= item.rank%>
                             </td>
@@ -66,8 +66,9 @@
                 </table>
             </div>
             <div class="marketPage"> 
+            
                 <a href="/market/<%=page.previous%>" class="previousPage2">Previous Page</a>
-                <a href="/market/<%=page.next%>">Next Page</a>
+                <a href="/market/<%=page.next%>" class=nextPage>Next Page</a>
                 <input type="hidden" class="previousPage1" value="<%=page.previous%>" >
                
             </div>
