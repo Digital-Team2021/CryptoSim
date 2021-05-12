@@ -19,7 +19,7 @@ server.use(methodOverride('_method'));
 
 //root
 server.get('/', homeHandler);
-server.get('/market', marketHandler);
+server.get('/market/:page', marketHandler);
 server.get('/register', registerHandler);
 server.post('/registerFinish', registerFinishHandler);
 server.get('/login', loginHandler);
@@ -37,6 +37,7 @@ server.get('*', errorHandler);
 
 // callback function
 function homeHandler(req, res) {
+  
   let key = process.env.NEWSKEY;
   let url1 = `https://cryptopanic.com/api/v1/posts/?auth_token=${key}`;
   superagent.get(url1)
@@ -68,7 +69,12 @@ function homeHandler(req, res) {
 
 function marketHandler(req, res) {
 
-  let url = `https://api.coingecko.com/api/v3/coins?per_page=15&page=1`;
+  let thisPage = req.params.page
+  let nextPage=Number(thisPage)+1
+  let previousPage=Number(thisPage)-1
+
+
+  let url = `https://api.coingecko.com/api/v3/coins?per_page=15&page=${thisPage}`;
   superagent.get(url)
     .then(data2 => {
       let dataCoins = data2.body;
@@ -77,9 +83,13 @@ function marketHandler(req, res) {
         return new Coins(item);
       });
 
-      
+      let pages={
 
-      res.render('pages/market', { coins: coinsArray });
+        next:nextPage,
+        previous:previousPage
+      }    
+
+      res.render('pages/market', { coins: coinsArray , page:pages });
     }).catch(error => {
       console.log(error);
       res.render('pages/error');
