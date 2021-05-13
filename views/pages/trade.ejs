@@ -6,98 +6,136 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="shortcut icon" type="image/x-icon" href="/assets/img/logo4-pourble done.png" />
-  <title>trade</title>
+  <title>Trade</title>
   <link rel="stylesheet" href="/css/style.css" />
 </head>
 
 <body>
   <%- include('../layout/header') %>
 
-    <main>
-      <div class="chart">
+    <main class="tradeMain">
+      <div class="tradeChart">
         <script src="https://widgets.coingecko.com/coingecko-coin-compare-chart-widget.js"></script>
         <coingecko-coin-compare-chart-widget coin-ids="<%=coin.id%>" currency="usd" locale="en">
         </coingecko-coin-compare-chart-widget>
       </div>
 
-      <div class="coinData">
-        <div class="coinImgLarge">
-          <img src="<%=coin.img%>" alt="<%=coin.id%>" />
+
+      <div class="tradeCoinData">
+        <div class="tardeCoinLargeImgContainer">
+          <div class="tradeCoinImgLarge">
+            <img style="width: 100%" src="<%=coin.img%>" alt="<%=coin.id%>" />
+          </div>
         </div>
-        <table>
-          <tr>
-            <th>Rank</th>
-            <th>Coin Name</th>
-            <th>Coin Symbol</th>
-            <th>Price</th>
-            <th>price change percentage 24h</th>
-            <th>High 24h</th>
-            <th>Low 24h</th>
-            <th>Market cap</th>
-          </tr>
-          <tr>
-            <td>
-              <%=coin.rank%>
-            </td>
-            <td>
-              <%=coin.id%>
-            </td>
-            <td>
-              <%=coin.symbol%>
-            </td>
-            <td>
-              <%=coin.price%>
-            </td>
-            <td>
-              <%=coin.change%>
-            </td>
-            <td>
-              <%=coin.high_24h%>
-            </td>
-            <td>
-              <%=coin.low_24h%>
-            </td>
-            <td>
-              <%=coin.market_cap%>
-            </td>
-          </tr>
-        </table>
+
+
+        <div class="tradeTableContainer">
+          <div class="tradeTableCoinData">
+            <div class="tradeRow tradeHeader">
+              <div class="tradeCell">
+                Rank
+              </div>
+              <div class="tradeCell">
+                Coin Name
+              </div>
+              <div class="tradeCell">
+                Coin Symbol
+              </div>
+              <div class="tradeCell">
+                Price
+              </div>
+              <div style="text-align: center;" class="tradeCell">
+                price change percentage 24h
+              </div>
+              <div class="tradeCell">
+                High 24h
+              </div>
+              <div class="tradeCell">
+                Low 24h
+              </div>
+              <div class="tradeCell">
+                Market cap
+              </div>
+            </div>
+
+
+            <div class="tradeRow">
+              <div class="tradeCell" data-title="Rank">
+                <%=coin.rank%>
+              </div>
+              <div class="tradeCell" data-title="Coin Name">
+                <%=coin.id%>
+              </div>
+              <div class="tradeCell" data-title="Coin Symbol">
+                <%=coin.symbol%>
+              </div>
+              <div class="tradeCell" data-title="Price">
+                <%=coin.price%>
+              </div>
+              <div style="text-align: center;" class="tradeCell" data-title="price change percentage 24h">
+                <%=coin.change%>
+              </div>
+              <div class="tradeCell" data-title="High 24h">
+                <%=coin.high_24h%>
+              </div>
+              <div class="tradeCell" data-title="Low 24h">
+                <%=coin.low_24h%>
+              </div>
+              <div class="tradeCell" data-title="Market cap">
+                <%=coin.market_cap%>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       </div>
 
-      <div class="excange">
-        <script src="https://widgets.coingecko.com/coingecko-coin-converter-widget.js"></script>
-        <coingecko-coin-converter-widget coin-id="<%=coin.id%>" currency="usd" background-color="#FFFFFF"
-          font-color="#4C4C4C" locale="en"></coingecko-coin-converter-widget>
+      <!-- <hr class="tradeHr"> -->
+
+      <hr class="tradeProgress">
+      <hr class="tradeProgressOpposit">
+
+      
+      <div class="tradeExchangeAndForms">
+        <div class="exchange">
+          <script src="https://widgets.coingecko.com/coingecko-coin-converter-widget.js"></script>
+          <coingecko-coin-converter-widget coin-id="<%=coin.id%>" currency="usd" background-color="#FFFFFF"
+            font-color="#4C4C4C" locale="en"></coingecko-coin-converter-widget>
+        </div>
+
+        <div class="tradeBuyAndSellAndBtns">
+          <div class="btnContainer">
+            <button class="buyBtn">Buy</button>
+            <button class="sellBtn">Sell</button>
+          </div>
+
+          <div class="tradeBuyAndSell">
+            <section class="buy">
+              <form action="/buy?_method=put" method="POST">
+                <label class="tradeLabel" for="amount">How much you want to buy <%=coin.id%></label><br>
+                <input type="number" name="amount" id="amount" step="any" placeholder="In USD" min="0" />
+                <input type="hidden" name="name" class="userNameBuy" />
+                <input type="hidden" name="price" value="<%=coin.price%>" />
+                <input type="hidden" name="coinName" value="<%=coin.id%>" />
+                <button class="submit">Buy</button>
+              </form>
+            </section>
+
+            <section class="sell">
+              <form action="/sell?_method=put" method="POST">
+                <label class="tradeLabel" for="amount">How many <%=coin.id%> you want to sell</label><br>
+                <input type="number" name="amount" id="amount" step="any" placeholder="<%=coin.id%>" min="0" />
+                <input type="hidden" name="name" class="userNameBuy" />
+                <input type="hidden" name="price" value="<%=coin.price%>" />
+                <input type="hidden" name="coinName" value="<%=coin.id%>" />
+                <button class="submit">Sell</button>
+              </form>
+            </section>
+          </div>
+        </div>
+
       </div>
 
-      <div class="btnContainer">
-        <button class="buyBtn">Buy</button>
-        <button class="sellBtn">Sell</button>
-      </div>
-
-      <div>
-        <section class="buy">
-          <form action="/buy?_method=put" method="POST">
-            <label for="amount">How much you want to buy <%=coin.id%> in USD</label>
-            <input type="number" name="amount" id="amount" step="any" placeholder="In USD" min="0"/>
-            <input type="hidden" name="name" class="userNameBuy" />
-            <input type="hidden" name="price" value="<%=coin.price%>" />
-            <input type="hidden" name="coinName" value="<%=coin.id%>" />
-            <button>Buy</button>
-          </form>
-        </section>
-
-        <section class="sell">
-          <form action="/sell?_method=put" method="POST">
-            <label for="amount">How many <%=coin.id%> you want to sell</label>
-            <input type="number" name="amount" id="amount" step="any" placeholder="<%=coin.id%>" min="0"/>
-            <input type="hidden" name="name" class="userNameBuy" />
-            <input type="hidden" name="price" value="<%=coin.price%>" />
-            <input type="hidden" name="coinName" value="<%=coin.id%>" />
-            <button>Sell</button>
-          </form>
-        </section>
-      </div>
     </main>
 
     <%- include('../layout/footer') %>
