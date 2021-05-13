@@ -14,26 +14,17 @@
 
     <%- include('../layout/header') %>
         <main>
-            <div class="searchandsort">
-                <button class="searchbtn">Search</button>
-                <button>Sort</button>
-            </div>
-            <form action="/search" class="search_form" method="POST">
-
-                <label for="searche">Search Title</label> <br>
-                <input type="text" name="searche" placeholder="Enter your search title" required>
-
+            <!-- <div class="searchandsort">
                 <button>Search</button>
-
-            </form>
-
-            <div class="marketTable">
-                <table>
-                    <tr>
+                <button>Sort</button>
+            </div> -->
+            <div class="mainCoins">
+                <table class="coins_table">
+                    <tr class="table_header">
                         <th>Rank</th>
                         <th>coin </th>
                         <th>symbol</th>
-                        <th>img </th>
+                        <th>Logo </th>
                         <th>price </th>
                         <th> 24h change </th>
                         <th>last 7 days chart</th>
@@ -41,7 +32,7 @@
                     </tr>
 
                     <% coins.forEach(item=>{%>
-                        <tr>
+                        <tr class="table_data">
                             <td>
                                 <%= item.rank%>
                             </td>
@@ -62,23 +53,22 @@
                             </td>
                             <td>
                                 <img src="<%= item.chart%>" alt="" srcset="">
-
                             </td>
                             <td>
-
+        
                                 <a href="/trade/<%=item.id%>">trade</a>
                             </td>
-
                         </tr>
                         <%});%>
 
                 </table>
             </div>
-            <div class="marketPage">
+            <div class="marketPage"> 
+            
                 <a href="/market/<%=page.previous%>" class="previousPage2">Previous Page</a>
-                <a href="/market/<%=page.next%>">Next Page</a>
-                <input type="hidden" class="previousPage1" value="<%=page.previous%>">
-
+                <a href="/market/<%=page.next%>" class=nextPage>Next Page</a>
+                <input type="hidden" class="previousPage1" value="<%=page.previous%>" >
+               
             </div>
         </main>
         <%- include('../layout/footer') %>

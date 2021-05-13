@@ -25,6 +25,7 @@
             
 
             <div class="mainNews">
+                <h2>Last News</h2>
                 <ul class="firstNews">
                     <% for(let i=0;i < 2;i ++){ %>
                         <li><a href="<%= news[i].url %>">
@@ -40,6 +41,8 @@
                         <% } %>
                 </ul>
                 <button id="newButton">More News</button>
+                <button id="LessButton">Less News</button>
+
             </div>
             <!-- <div class="mainvideo">
                 <video controls>
@@ -48,12 +51,12 @@
 
             </div> -->
             <div class="mainCoins">
-                <table>
-                    <tr>
+                <table class="coins_table">
+                    <tr class="table_header">
                         <th>Rank</th>
                         <th>coin </th>
                         <th>symbol</th>
-                        <th>img </th>
+                        <th>Logo </th>
                         <th>price </th>
                         <th>24h change </th>
                         <th>last 7 days chart</th>
@@ -61,7 +64,7 @@
                     </tr>
 
                     <% trend.forEach(item=>{%>
-                        <tr>
+                        <tr class="table_data">
                             <td>
                                 <%= item.rank%>
                             </td>
