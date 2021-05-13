@@ -191,10 +191,10 @@ function tradeHandler(req, res) {
         img: coinData.image.large,
         rank: `#${coinData.market_cap_rank}`,
         price: coinData.market_data.current_price.usd,
-        market_cap: `${coinData.market_data.market_cap.usd} $`,
-        high_24h: `${coinData.market_data.high_24h.usd} $`,
-        low_24h: `${coinData.market_data.low_24h.usd} $`,
-        change: `${coinData.market_data.price_change_percentage_24h} %`
+        market_cap: `${coinData.market_data.market_cap.usd}$`,
+        high_24h: `${coinData.market_data.high_24h.usd}$`,
+        low_24h: `${coinData.market_data.low_24h.usd}$`,
+        change: `${coinData.market_data.price_change_percentage_24h}%`
 
       };
 
