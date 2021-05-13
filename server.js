@@ -33,11 +33,12 @@ server.get('/about', aboutHandler);
 server.get('/profile/:name', profileHandler);
 server.put('/updateUser/:name', updateUserHandler);
 server.delete('/deleteUser/:name', deleteUserHandler);
+server.post('/search', searchHandler);
 server.get('*', errorHandler);
 
 // callback function
 function homeHandler(req, res) {
-  
+
   let key = process.env.NEWSKEY;
   let url1 = `https://cryptopanic.com/api/v1/posts/?auth_token=${key}`;
   superagent.get(url1)
@@ -59,7 +60,7 @@ function homeHandler(req, res) {
 
           res.render('pages/index', { news: newsArray, trend: trendArray });
         }).catch(error => {
-          console.log(error);
+          console.log(error.message);
           res.render('pages/error');
         });
 
@@ -70,8 +71,8 @@ function homeHandler(req, res) {
 function marketHandler(req, res) {
 
   let thisPage = req.params.page
-  let nextPage=Number(thisPage)+1
-  let previousPage=Number(thisPage)-1
+  let nextPage = Number(thisPage) + 1
+  let previousPage = Number(thisPage) - 1
 
 
   let url = `https://api.coingecko.com/api/v3/coins?per_page=15&page=${thisPage}`;
@@ -83,15 +84,15 @@ function marketHandler(req, res) {
         return new Coins(item);
       });
 
-      let pages={
+      let pages = {
 
-        next:nextPage,
-        previous:previousPage
-      }    
+        next: nextPage,
+        previous: previousPage
+      }
 
-      res.render('pages/market', { coins: coinsArray , page:pages });
+      res.render('pages/market', { coins: coinsArray, page: pages });
     }).catch(error => {
-      console.log(error);
+      console.log(error.message);
       res.render('pages/error');
     });
 
@@ -110,7 +111,7 @@ function loginHandler(req, res) {
 
 function registerFinishHandler(req, res) {
   let data = Object.values(req.body);
-  let username= data[0].trim()
+  let username = data[0].trim()
 
   let SQL = `SELECT * FROM personal_info WHERE name= $1 OR email= $2;`;
   let safeValue2 = [username, data[1]];
@@ -142,7 +143,7 @@ function registerFinishHandler(req, res) {
                 });
             })
             .catch(error => {
-              console.log(error);
+              console.log(error.message);
               res.render('pages/error');
             });
         }
@@ -168,7 +169,7 @@ function loginFinishHandler(req, res) {
       }
     })
     .catch(error => {
-      console.log(error);
+      console.log(error.message);
       res.render('pages/error');
     });
 }
@@ -201,7 +202,7 @@ function tradeHandler(req, res) {
       res.render('pages/trade', { coin: coinInfo });
 
     }).catch(error => {
-      console.log(error);
+      console.log(error.message);
       res.render('pages/error');
     });
 
@@ -245,17 +246,17 @@ function buyHandler(req, res) {
                           };
                           res.render('pages/finishTrade', { msg: obj });
                         }).catch(error => {
-                          console.log(error);
+                          console.log(error.message);
                           res.render('pages/error');
                         });
 
                     }).catch(error => {
-                      console.log(error);
+                      console.log(error.message);
                       res.render('pages/error');
                     });
 
                 }).catch(error => {
-                  console.log(error);
+                  console.log(error.message);
                   res.render('pages/error');
                 });
 
@@ -281,15 +282,15 @@ function buyHandler(req, res) {
                           };
                           res.render('pages/finishTrade', { msg: obj });
                         }).catch(error => {
-                          console.log(error);
+                          console.log(error.message);
                           res.render('pages/error');
                         });
                     }).catch(error => {
-                      console.log(error);
+                      console.log(error.message);
                       res.render('pages/error');
                     });
                 }).catch(error => {
-                  console.log(error);
+                  console.log(error.message);
                   res.render('pages/error');
                 });
 
@@ -304,7 +305,7 @@ function buyHandler(req, res) {
         res.render('pages/finishTrade', { msg: obj });
       }
     }).catch(error => {
-      console.log(error);
+      console.log(error.message);
       res.render('pages/error');
     });
 
@@ -351,24 +352,24 @@ function sellHandler(req, res) {
                       };
                       res.render('pages/finishTrade', { msg: obj });
                     }).catch(error => {
-                      console.log(error);
+                      console.log(error.message);
                       res.render('pages/error');
                     });
 
                 }).catch(error => {
-                  console.log(error);
+                  console.log(error.message);
                   res.render('pages/error');
                 });
 
             }).catch(error => {
-              console.log(error);
+              console.log(error.message);
               res.render('pages/error');
             });
         }
       }
 
     }).catch(error => {
-      console.log(error);
+      console.log(error.message);
       res.render('pages/error');
     });
 
@@ -385,7 +386,7 @@ function profileHandler(req, res) {
       let safeValue2 = [name, 'usd'];
       client.query(SQL2, safeValue2)
         .then(data2 => {
-          
+
           let usdAmount = data2.rows[0].amount;
           let obj = {
             id: userData.id,
@@ -394,15 +395,15 @@ function profileHandler(req, res) {
             password: userData.password,
             amount: usdAmount
           };
-        
+
           res.render('pages/profile', { user: obj });
         }).catch(error => {
-          console.log(error);
+          console.log(error.message);
           res.render('pages/error');
         });
 
     }).catch(error => {
-      console.log(error);
+      console.log(error.message);
       res.render('pages/error');
     });
 }
@@ -422,12 +423,12 @@ function updateUserHandler(req, res) {
         .then(() => {
           res.redirect(`/profile/${name}`);
         }).catch(error => {
-          console.log(error);
+          console.log(error.message);
           res.render('pages/error');
         });
 
     }).catch(error => {
-      console.log(error);
+      console.log(error.message);
       res.render('pages/error');
     });
 }
@@ -444,11 +445,11 @@ function deleteUserHandler(req, res) {
         .then(() => {
           res.redirect(`/logout`);
         }).catch(error => {
-          console.log(error);
+          console.log(error.message);
           res.render('pages/error');
         });
     }).catch(error => {
-      console.log(error);
+      console.log(error.message);
       res.render('pages/error');
     });
 }
@@ -471,7 +472,7 @@ function walletHandler(req, res) {
         let url = `https://api.coingecko.com/api/v3/coins/${item.coinname}?localization=false`;
         const data = await superagent.get(url)
 
-        
+
         let obj = {
           id: data.body.id,
           price: data.body.market_data.current_price.usd,
@@ -482,23 +483,23 @@ function walletHandler(req, res) {
       }))
 
       let totalBalance = 0;
-      let walletData=listData.map((item,i)=>{
+      let walletData = listData.map((item, i) => {
 
-        return new Wallet(item,coinOpjArr[i])
-      })
-      
-      walletData.forEach((item)=>{
-        totalBalance=totalBalance+Number(item.value);
+        return new Wallet(item, coinOpjArr[i])
       })
 
-      let objBalance={
-        balance:totalBalance.toFixed(7)
+      walletData.forEach((item) => {
+        totalBalance = totalBalance + Number(item.value);
+      })
+
+      let objBalance = {
+        balance: totalBalance.toFixed(7)
       }
-    
-      res.render('pages/wallet',{walletinfo:walletData,total:objBalance});
+
+      res.render('pages/wallet', { walletinfo: walletData, total: objBalance });
 
     }).catch(error => {
-      console.log(error);
+      console.log(error.message);
       res.render('pages/error');
     });
 
@@ -507,6 +508,28 @@ function walletHandler(req, res) {
 function logoutHandler(req, res) {
 
   res.render('pages/logout');
+
+}
+
+function searchHandler(req, res) {
+
+  let search = req.body.searche;
+  let searchArray = []
+  let url = `https://api.coingecko.com/api/v3/coins/list`
+
+  superagent.get(url)
+    .then(data => {
+
+      let coins = data.body;
+      coins.forEach((item) => {
+        if (item.id.includes(search)) {
+          searchArray.push(item.id);
+        }
+      });
+
+      res.send(searchArray)
+
+    });
 
 }
 
@@ -523,11 +546,11 @@ function News(obj) {
   this.url = `https://${obj.source.domain}/${obj.slug}`;
 }
 
-function Wallet(objlist,objcoin){
+function Wallet(objlist, objcoin) {
   this.coinName = objlist.coinname;
-  this.img=objcoin.img;
-  this.amount=objlist.amount;
-  this.value=(Number(objlist.amount)*Number(objcoin.price)).toFixed(7)
+  this.img = objcoin.img;
+  this.amount = objlist.amount;
+  this.value = (Number(objlist.amount) * Number(objcoin.price)).toFixed(7)
 
 }
 

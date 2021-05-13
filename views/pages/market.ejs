@@ -15,9 +15,18 @@
     <%- include('../layout/header') %>
         <main>
             <div class="searchandsort">
-                <button>Search</button>
+                <button class="searchbtn">Search</button>
                 <button>Sort</button>
             </div>
+            <form action="/search" class="search_form" method="POST">
+
+                <label for="searche">Search Title</label> <br>
+                <input type="text" name="searche" placeholder="Enter your search title" required>
+
+                <button>Search</button>
+
+            </form>
+
             <div class="marketTable">
                 <table>
                     <tr>
@@ -56,7 +65,7 @@
 
                             </td>
                             <td>
-        
+
                                 <a href="/trade/<%=item.id%>">trade</a>
                             </td>
 
@@ -65,11 +74,11 @@
 
                 </table>
             </div>
-            <div class="marketPage"> 
+            <div class="marketPage">
                 <a href="/market/<%=page.previous%>" class="previousPage2">Previous Page</a>
                 <a href="/market/<%=page.next%>">Next Page</a>
-                <input type="hidden" class="previousPage1" value="<%=page.previous%>" >
-               
+                <input type="hidden" class="previousPage1" value="<%=page.previous%>">
+
             </div>
         </main>
         <%- include('../layout/footer') %>
