@@ -7,6 +7,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="/assets/img/logo4-pourble done.png" />
     <title>CryptoSim Home Page</title>
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/wallet.css">
 </head>
 <body>
     <%- include('../layout/header') %>
@@ -14,31 +15,33 @@
         <div class="balance">
             <h1>Your Balance is : <%=total.balance%> $ </h1>
         </div>
-        <div class="coinsWallet">
-            <h2>Your Coins</h2>
+        
+            <h2 class="ocoins">Your Coins </h2>
             <div>
-                <h3>Coin </h3>
-                <h3>Amount</h3>
-                <h3>Value</h3>
-                <h3>Trade</h3>
                 
-                    <% walletinfo.forEach(element => { %>
-                    <ul> 
-                        <li><img src="<%= element.img %>" alt="walletCoins" width="20" height="20"></li>
-                        <li><%= element.coinName %></li>
-                        <li><%= element.amount %></li>  
-                        <li><%= element.value %> $</li>
-                        <li><a href="/trade/<%= element.coinName %>" id="<%= element.coinName %>">Trade</a></li>  
+                <div class="otable"></div>
 
-                    </ul>
-                
-                   <% }) %>   
-                    
-                
+                    <table id="customers">
+                        <tr>
+                          <th>Logo</th> 
+                          <th>Coin</th>
+                          <th>Amount</th>
+                          <th>Value</th>
+                          <th>Trade</th>
+                        </tr>
+                        <% walletinfo.forEach(element => { %>
+                        <tr>
+                          <td><img src="<%= element.img %>" alt="walletCoins" width="20" height="20"></td>
+                          <td><%= element.coinName %></td>
+                          <td><%= element.amount %></td>
+                          <td><%= element.value %> $</td>
+                          <td><a href="/trade/<%= element.coinName %>">trade</a></td>
+                        </tr>
+                        <% }) %>   
+                      </table>
 
-            </div>
-
-        </div>
+                </div>
+  
 
      
     </main>
