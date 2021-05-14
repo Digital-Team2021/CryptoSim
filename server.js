@@ -1,4 +1,4 @@
-'use strict';
+'us strict';
 //app depandancies
 require('dotenv').config();
 const express = require('express');
@@ -195,7 +195,7 @@ function tradeHandler(req, res) {
         market_cap: `${coinData.market_data.market_cap.usd}$`,
         high_24h: `${coinData.market_data.high_24h.usd}$`,
         low_24h: `${coinData.market_data.low_24h.usd}$`,
-        change: `${coinData.market_data.price_change_percentage_24h}%`
+        change: `${Number(coinData.market_data.price_change_percentage_24h).toFixed(2)}%`
 
       };
 
@@ -393,7 +393,7 @@ function profileHandler(req, res) {
             name: userData.name,
             email: userData.email,
             password: userData.password,
-            amount: usdAmount
+            amount: Number(usdAmount).toFixed(2)
           };
 
           res.render('pages/profile', { user: obj });
@@ -493,7 +493,7 @@ function walletHandler(req, res) {
       })
 
       let objBalance = {
-        balance: totalBalance.toFixed(7)
+        balance: totalBalance.toFixed(2)
       }
 
       res.render('pages/wallet', { walletinfo: walletData, total: objBalance });
@@ -549,18 +549,18 @@ function News(obj) {
 function Wallet(objlist, objcoin) {
   this.coinName = objlist.coinname;
   this.img = objcoin.img;
-  this.amount = objlist.amount;
-  this.value = (Number(objlist.amount) * Number(objcoin.price)).toFixed(7)
+  this.amount = (Number(objlist.amount)).toFixed(5);
+  this.value = (Number(objlist.amount) * Number(objcoin.price)).toFixed(2)
 
 }
 
 function Coins(obj) {
   this.rank = `#${obj.market_data.market_cap_rank}`;
   this.id = obj.id;
-  this.symbol = obj.symbol;
+  this.symbol = obj.symbol.toUpperCase();
   this.img = obj.image.thumb;
   this.price = `${obj.market_data.current_price.usd} $`;
-  this.change = `${obj.market_data.price_change_percentage_24h} %`;
+  this.change = `${Number(obj.market_data.price_change_percentage_24h).toFixed(2)} %`;
   let x = obj.image.thumb.split('/');
   this.chart = `https://www.coingecko.com/coins/${x[5]}/sparkline`;
 

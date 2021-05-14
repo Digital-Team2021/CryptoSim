@@ -1,5 +1,5 @@
 
-/* @media  (min-width: 767px){ */
+@media  (min-width: 767px){
 
   .ocoins{
 
@@ -61,7 +61,9 @@
   height: 50px;
 line-height: 50px;}
   
-  #customers tr:hover {background-color: rgb(85, 85, 88);}
+  #customers tr:hover {
+    background-color: gray;
+  }
 
   #customers a {color:black ;}
 
@@ -77,4 +79,4 @@ line-height: 50px;}
     color: white;
     line-height: 50px;
   }
-/* } */
+}

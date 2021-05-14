@@ -12,7 +12,11 @@
 
         <%- include('../layout/header') %>
             <main>
-                <h4>Welcome <%=userData.name%> to CryptoSim best place to buy and sell cryptocurrency without any worries</h4>
+                <div class="msgimg">
+                    <img id="welcomeimg"  src="/assets/img/welcome-20.gif" alt="">
+                    <h4>Welcome <%=userData.name%> to CryptoSim <br> <br> best place to buy and sell cryptocurrency <br> <br> without any worries.</h4>
+
+                </div>
                 <input id="userName" type="hidden" value="<%=userData.name%>">
                 
             </main>
