@@ -354,11 +354,10 @@ footer img:hover{
  line-height: 25px;
    
 }
-/* .marketPage a:hover{
-    color: #7b10b0;
+.marketPage a:hover{
     font-weight: bold;
-    background-color: white;
-} */
+    background-color: gray;
+}
 
 
 /* profile */
@@ -545,7 +544,9 @@ footer img:hover{
 
 }
 
-
+tr:hover{
+    background-color: gray;
+}
 
 }
 
