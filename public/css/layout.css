@@ -359,7 +359,196 @@ footer img:hover{
     font-weight: bold;
     background-color: white;
 } */
+
+
+/* profile */
+
+.profileh1{
+    width: 45%;
+    margin: auto;
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    font-size: large;
+    color: white;
+    background: rgb(70, 69, 69);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 5px;
+    box-shadow: 0  0 5px 0.2px black;
+
 }
+
+.info{
+    width: 45%;
+    margin: auto;
+    text-align: center;  
+    background: rgb(70, 69, 69);
+    padding-top: 1px;
+    padding-bottom: 6px;
+    border-radius: 5px;
+    box-shadow: 0  0 5px 0.2px black;
+
+}
+
+.info h2{
+    
+    background: white;
+    width: 97%;
+    margin: auto;
+    margin-top: 5px;
+    font-size: small;
+    font-weight: bolder;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.info h2:hover{
+    background-color: gray;
+    color: white;
+
+}
+
+.updatebtn{
+    margin: auto;
+    text-align: center;
+    margin-top: 15px;
+    
+   
+}
+
+.updatebtn button{
+    background-color: rgb(70, 69, 69);
+    color: white;
+    border-radius: 3px;
+    font-size: small;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.deletebtn{
+    margin: auto;
+    text-align: center;
+    margin-top: 15px;
+   
+}
+
+.deletebtn button{
+    background-color: rgb(70, 69, 69);
+    color: white;
+    border-radius: 3px;
+    font-size: small;
+    padding-top: 8px;
+    padding-bottom:8px;
+}
+
+.profileimg{
+    width: 35%;
+    margin: auto;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.profileimg img{
+    width: 110px;
+    height: 110px;
+}
+
+.btn{
+    display: flex;
+    width: 35%;
+    margin: auto;
+}
+
+#updateForm{
+
+    width: 20%;
+    margin: auto;
+    margin-top: 15px;
+    /* background-color:rgb(70, 69, 69) ; */
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-bottom: 20px;
+    background-color: white;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+
+}
+
+.updateForm{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: auto;
+    padding-bottom: 20px;
+    padding-top: 10px;
+
+
+
+}
+
+.updateForm input{
+
+    width: 90%;
+    margin: auto;
+    padding-top:5px;
+    padding-bottom:5px;
+    text-align: center;
+
+
+    margin-top: 5px;
+
+
+
+}
+
+.updateForm button{
+    width: 50%;
+    margin: auto;
+    margin-top: 20px;
+    border-radius: 5px;
+    box-shadow: 0  0 5px 0.2px black;
+
+
+}
+.updateForm label{
+
+    background-color: rgb(70, 69, 69);
+
+    width: 90%;
+    margin: auto;
+
+    text-align: center;
+    margin-top: 20px;
+
+    padding-top: 5px;
+    padding-bottom: 5px;
+    color: white;
+    font-size: small;
+    border-radius: 5px;
+    box-shadow: 0  0 5px 0.2px black;
+
+    font-weight: bold;
+}
+
+.updateForm label:hover{
+    background-color: gray;
+}
+
+.updateForm button{
+    background-color: rgb(70, 69, 69);
+    color: white;
+    border-radius: 3px;
+    font-size: small;
+    padding-top: 8px;
+    padding-bottom: 8px;
+
+
+}
+
+
+
+}
+
 
 
 

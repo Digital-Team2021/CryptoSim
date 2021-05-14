@@ -13,26 +13,41 @@
 <body>
     <%- include('../layout/header') %>
         <main>
+
+            <h1 class="profileh1"><%= user.name %> Profile</h1>
+            <div class="profileimg">
+                <img src="/assets/img/pngjoy.com_gray-circle-login-user-icon-png-transparent-png_2750635.png" alt="">
+            </div>
             <div class="info">
-                <h2>Name : <%= user.name %></h2>
-                <h2>Email : <%= user.email %></h2>
+                <h2>Name : <%= user.name %>
+                </h2>
+                <h2>Email : <%= user.email %>
+                </h2>
                 <h2>USD Amount : <%= user.amount %> $</h2>
 
             </div>
 
+            <div class="btn">
+
             <div class="updatebtn">
                 <button id="updateBut">Update your account</button>
             </div>
-            <form action="/deleteUser/<%=user.name%>?_method=delete" method="POST">
+            <form class="deletebtn" action="/deleteUser/<%=user.name%>?_method=delete" method="POST">
                 <button>Delete your account</button>
             </form>
 
-            <div id="updateForm">
-                <form action="/updateUser/<%=user.name%>?_method=put" method="POST">
+        </div>
 
+            <div id="updateForm">
+                <form class="updateForm" action="/updateUser/<%=user.name%>?_method=put" method="POST">
+
+                    
+  <label for="email">Email</label>
                     <input type="text" name="email" value="<%= user.email %>">
+                    <label for="password">Password</label>
 
                     <input type="password" name="password" value="<%= user.password %>">
+                    <label for="amount">Amount</label>
 
                     <input type="number" name="amount" value="<%= user.amount %>" step="any">
 

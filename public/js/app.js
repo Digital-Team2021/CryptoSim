@@ -10,7 +10,7 @@ $('.wallet').attr('href',`/wallet/${userName}`);
 if(parseInt(login)===1){
 
   $('.rlwHideandShow').hide();
-  $('.username').text(`${userName} (profile)`);
+  $('.username').text(`${userName}`);
 
 }else{
   $('.wallet').hide();
