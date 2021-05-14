@@ -147,7 +147,7 @@ body {
 /* exchange And buy&sell forms */
 .tradeExchangeAndForms {
   display: flex;
-  justify-content:space-between;
+  justify-content: space-between;
   align-items: center;
   width: 90%;
   margin: auto;
@@ -165,10 +165,8 @@ body {
   padding: 3%;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
   text-align: center;
-  /* max-width: 360px; */
   min-height: max-content;
   margin: auto;
-
 }
 
 .exchange {
@@ -178,7 +176,6 @@ body {
   background: #f6f6f6;
   margin: auto;
   margin-left: 1%;
-  /* margin-bottom: 5%; */
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
   padding: 13px;
 }
@@ -194,6 +191,7 @@ body {
   box-sizing: border-box;
   font-size: 20px;
   text-align: center;
+  text-transform: capitalize;
 }
 
 .tradeExchangeAndForms button {
@@ -213,8 +211,7 @@ body {
 
 .tradeExchangeAndForms .submit {
   width: 90%;
-  margin-bottom:0;
-
+  margin-bottom: 0;
 }
 
 .tradeExchangeAndForms button:hover,
@@ -223,66 +220,116 @@ body {
   background: gray;
 }
 
-
 /* -- Animated hrs -- */
 
-.tradeProgress, .tradeProgressOpposit {
-    border: 0;
-    clear: both;
-    display: block;
-    margin: 2.4rem auto;
-    text-align: center;
-    width: 100%;
-    background: rgba(1, 15, 30, 0.1);
-    height: 1px;
-    overflow: hidden;
-    position: relative;
-  }
-    
- 
-  
-  .tradeProgress::before {
-    animation-duration: 2s;
-    animation-timing-function: ease;
-    animation-iteration-count: infinite;
-    animation-name: tradeProgress;
-    background: #111;
-    content: "";
-    display: block;
-    height: 3px;
-    position: absolute;
-    width: 80px;
-  }
-  
-  @keyframes tradeProgress {
-    0% {
-      transform: translateX(0px);
-    }
-    100% {
-      transform: translateX(1440px);
-    }
-  }
-  
+.tradeProgress,
+.tradeProgressOpposit {
+  border: 0;
+  clear: both;
+  display: block;
+  margin: 2.4rem auto;
+  text-align: center;
+  width: 100%;
+  background: rgba(1, 15, 30, 0.1);
+  height: 1px;
+  overflow: hidden;
+  position: relative;
+}
 
-  .tradeProgressOpposit::before {
-    animation-duration: 2s;
-    animation-timing-function: ease;
-    animation-iteration-count: infinite;
-    animation-name: tradeProgressOpposit;
-    background: #111;
-    content: "";
-    display: block;
-    height: 3px;
-    position: absolute;
-    width: 80px;
+.tradeProgress::before {
+  animation-duration: 2s;
+  animation-timing-function: ease;
+  animation-iteration-count: infinite;
+  animation-name: tradeProgress;
+  background: #111;
+  content: "";
+  display: block;
+  height: 3px;
+  position: absolute;
+  width: 80px;
+}
+
+@keyframes tradeProgress {
+  0% {
+    transform: translateX(0px);
   }
-  
-  @keyframes tradeProgressOpposit {
-    100% {
-      transform: translateX(0px);
-    }
-    0% {
-      transform: translateX(1440px);
-    }
+  100% {
+    transform: translateX(1440px);
   }
+}
+
+.tradeProgressOpposit::before {
+  animation-duration: 2s;
+  animation-timing-function: ease;
+  animation-iteration-count: infinite;
+  animation-name: tradeProgressOpposit;
+  background: #111;
+  content: "";
+  display: block;
+  height: 3px;
+  position: absolute;
+  width: 80px;
+}
+
+@keyframes tradeProgressOpposit {
+  100% {
+    transform: translateX(0px);
+  }
+  0% {
+    transform: translateX(1440px);
+  }
+}
 /* END Trade page code*/
+
+/* START register page code*/
+.regFormContainer form {
+  position: relative;
+  z-index: 1;
+  background: #ffffff;
+  width: 40%;
+  margin: 100px auto 100px;
+  padding: 20px;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.regFormContainer input {
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 10px 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+
+}
+
+.regFormContainer input:last-child  {
+  text-transform: uppercase;
+  outline: 0;
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color:#ffffff;
+  font-size: 14px;
+  cursor: pointer;
+  background: rgb(70, 69, 69);
+
+}
+
+.regFormContainer label{
+  padding: 10px;
+
+}
+
+.regFormContainer button:hover{
+  background-color: rgb(70, 69, 69);
+}
+
+.reg{
+  font-size: x-large;
+  margin-bottom: 10px;
+  text-align: center;
+}
+/* START register page code*/
