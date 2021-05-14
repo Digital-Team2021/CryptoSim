@@ -54,13 +54,13 @@
                 <table class="coins_table">
                     <tr class="table_header">
                         <th>Rank</th>
-                        <th>coin </th>
-                        <th>symbol</th>
+                        <th>Coin </th>
+                        <th>Symbol</th>
                         <th>Logo </th>
-                        <th>price </th>
+                        <th>Price </th>
                         <th>24h change </th>
-                        <th>last 7 days chart</th>
-                        <th>trade</th>
+                        <th>7 days chart</th>
+                        <th>Trade</th>
                     </tr>
 
                     <% trend.forEach(item=>{%>
@@ -88,7 +88,7 @@
                             </td>
                             <td>
 
-                                <a href="/trade/<%=item.id%>">trade</a>
+                                <a href="/trade/<%=item.id%>">Trade</a>
                             </td>
                         </tr>
                         <%});%>

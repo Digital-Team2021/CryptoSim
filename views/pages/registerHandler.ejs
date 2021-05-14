@@ -11,7 +11,11 @@
 <body>
     <%- include('../layout/header') %>
     <main>
-        <h4><%=msg.message%></h4>
+        <div class="msgimg">
+            <img  src="/assets/img/giphy.gif" alt="">
+            <h4><%=msg.message%></h4>
+        </div>
+        
     </main>
     <%- include('../layout/footer') %>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>   

@@ -6,17 +6,20 @@
     color: #7b10b0;
     line-height: 50px;
     font-size: 50px;
-    padding-top: 50px;
+
   }
 
   #per{
     margin-top: 35px;
     text-align: center;
     font-size: 35px;
+    /* margin-top: 150px; */
+    font-weight: bolder;
+
   }
 
   .bcolor{
-    color: #7b10b0;
+    color: black;
   }
  
   .oflexcount {
@@ -30,7 +33,9 @@
 
   .oflexcount > a {
      text-align: center;
-     color: rgb(0, 0, 0);
+     color: #7b10b0;
+     font-weight: bolder;
+
  
    }
 
@@ -45,12 +50,13 @@
     
    }
 
-  .oflexcount > a :hover {
+  .oflexcount img:hover {
   
     width: 200px;
     height: 200px;
     
   }
+
 
     
 

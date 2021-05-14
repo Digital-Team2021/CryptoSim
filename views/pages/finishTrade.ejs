@@ -11,7 +11,10 @@
 <body>
     <%- include('../layout/header') %>
     <main>
-        <h4><%=msg.message%></h4>
+        <div class="msgimg">
+            <img  src="/assets/img/giphy.gif" alt="">
+            <h4><%=msg.message%></h4>
+        </div>
         <input type="hidden" id="coinName" value="<%=msg.coinName%>">
         
     </main>
