@@ -281,10 +281,9 @@ body {
 }
 /* END Trade page code*/
 
-/* START register page code*/
+/* START register and loginpage code*/
 .regFormContainer form {
   position: relative;
-  z-index: 1;
   background: #ffffff;
   width: 40%;
   margin: 100px auto 100px;
@@ -323,13 +322,14 @@ body {
 
 }
 
-.regFormContainer button:hover{
-  background-color: rgb(70, 69, 69);
+.regFormContainer input:last-child:hover{
+  background-color:gray;
+  font-weight:bolder;
 }
 
-.reg{
+.regLogin{
   font-size: x-large;
   margin-bottom: 10px;
   text-align: center;
 }
-/* START register page code*/
+/* End register and login page code*/
