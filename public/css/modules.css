@@ -12,16 +12,19 @@
     }
     header a{
     text-decoration:none ;
+    padding: 5px;
    font-size: 15px;
    color: white;
     }
-    header a:hover {
-        
-        color: #7b10b0;
-      }
     .custom-shape-divider-top-1620739521 .shape-fill {
         fill: #000000;
         
+    }
+
+    #headerhover:hover{
+        border-radius: 5px;
+        background-color: #7b10b0;
+
     }
     
     /* footer */
@@ -33,10 +36,9 @@ background: linear-gradient(to right, #434343, #000000); /* W3C, IE 10+/ Edge, F
 
     }
     footer a{
+    
         color: white;
-    }
-    footer a:hover{
-        color: #7b10b0;
+        padding: 5px;
     }
 
     /* main */
@@ -54,7 +56,7 @@ background: linear-gradient(to top, #a0a3a7, white); /* W3C, IE 10+/ Edge, Firef
 
     .mainimg{
 
-        color: #7b10b0;
+        color: white;
 
         background-size: cover;
         
@@ -65,12 +67,34 @@ background: linear-gradient(to top, #a0a3a7, white); /* W3C, IE 10+/ Edge, Firef
         background-image: url("/assets/img/crypto-currencies.png");
     }
 
-    .mainimg h1{
-        background-color: white;
-        text-shadow: 2px 2px black;
-        opacity: 70%;
+    .mainimg h1 span{
+        /* text-shadow: 2px 2px black; */
+        /* box-shadow: 0  0 5px 0.2px black; */
+
+        border-radius: 3px;
+        text-shadow: 3px 3px black; 
+
+
         
     }
+
+
+    .mainimg h1{
+
+        background: black;  /* fallback for old browsers */
+        background: -webkit-linear-gradient(to top, #434343, black);  /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to top, #434343, black); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        opacity: 70%;
+
+
+          border-radius: 5px;
+          
+         box-shadow: 0  0 4px 0.2px black;
+
+    }
+
+
+
     
 
   

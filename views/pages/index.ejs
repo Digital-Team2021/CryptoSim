@@ -16,7 +16,7 @@
     <div class="mainimg">
 
 
-        <h1>Buy & sell Crypto without worries</h1>
+        <h1> <span>Buy & sell Crypto without worries</span> </h1>
 
     </div>
 
@@ -25,18 +25,20 @@
             
 
             <div class="mainNews">
-                <h2>Last News</h2>
+                <h2><img height="50" width="50" src="/assets/img/globe.png" alt=""> News</h2>
                 <ul class="firstNews">
                     <% for(let i=0;i < 2;i ++){ %>
-                        <li><a href="<%= news[i].url %>">
-                                <%= news[i].title %>
+                        <li> <h3><%= news[i].title %></h3>
+                            <a href="<%= news[i].url %>">
+                                Read more
                             </a></li>
                         <% } %>
                 </ul>
                 <ul class="restNews">
-                    <% for(let i=2;i < news.length;i ++){ %>
-                        <li class="news"><a href="<%= news[i].url %>">
-                                <%= news[i].title %>
+                    <% for(let i=2;i < 10;i ++){ %>
+                        <li class="news"><h3><%= news[i].title %></h3>
+                            <a href="<%= news[i].url %>">
+                                Read more
                             </a></li>
                         <% } %>
                 </ul>
