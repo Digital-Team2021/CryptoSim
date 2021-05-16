@@ -34,7 +34,7 @@
             <div class="mainNews">
                 <h2><img height="50" width="50" src="/assets/img/globe.png" alt=""> News</h2>
                 <ul class="firstNews">
-                    <% for(let i=0;i < 4;i ++){ %>
+                    <% for(let i=0;i < 3;i ++){ %>
                         <li> <h3><%= news[i].title %></h3>
                             <a target="_blank" href="<%= news[i].url %>">
                                 Read more
@@ -42,7 +42,15 @@
                         <% } %>
                 </ul>
                 <ul class="restNews">
-                    <% for(let i=4;i < 8;i ++){ %>
+                    <% for(let i=3;i < 6;i ++){ %>
+                        <li class="news"><h3><%= news[i].title %></h3>
+                            <a target="_blank" href="<%= news[i].url %>">
+                                Read more
+                            </a></li>
+                        <% } %>
+                </ul>
+                <ul class="restNews2">
+                    <% for(let i=6;i < 9;i ++){ %>
                         <li class="news"><h3><%= news[i].title %></h3>
                             <a target="_blank" href="<%= news[i].url %>">
                                 Read more
