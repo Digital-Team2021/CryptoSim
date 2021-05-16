@@ -16,7 +16,7 @@
     <div class="mainimg">
 
 
-        <h1>Buy & sell Crypto without worries</h1>
+        <h1> <span>Buy & sell Crypto without worries</span> </h1>
 
     </div>
 
@@ -25,18 +25,20 @@
             
 
             <div class="mainNews">
-                <h2>Last News</h2>
+                <h2><img height="50" width="50" src="/assets/img/globe.png" alt=""> News</h2>
                 <ul class="firstNews">
                     <% for(let i=0;i < 2;i ++){ %>
-                        <li><a href="<%= news[i].url %>">
-                                <%= news[i].title %>
+                        <li> <h3><%= news[i].title %></h3>
+                            <a href="<%= news[i].url %>">
+                                Read more
                             </a></li>
                         <% } %>
                 </ul>
                 <ul class="restNews">
-                    <% for(let i=2;i < news.length;i ++){ %>
-                        <li class="news"><a href="<%= news[i].url %>">
-                                <%= news[i].title %>
+                    <% for(let i=2;i < 10;i ++){ %>
+                        <li class="news"><h3><%= news[i].title %></h3>
+                            <a href="<%= news[i].url %>">
+                                Read more
                             </a></li>
                         <% } %>
                 </ul>
@@ -54,13 +56,13 @@
                 <table class="coins_table">
                     <tr class="table_header">
                         <th>Rank</th>
-                        <th>coin </th>
-                        <th>symbol</th>
+                        <th>Coin </th>
+                        <th>Symbol</th>
                         <th>Logo </th>
-                        <th>price </th>
+                        <th>Price </th>
                         <th>24h change </th>
-                        <th>last 7 days chart</th>
-                        <th>trade</th>
+                        <th>7 days chart</th>
+                        <th>Trade</th>
                     </tr>
 
                     <% trend.forEach(item=>{%>
@@ -88,7 +90,7 @@
                             </td>
                             <td>
 
-                                <a href="/trade/<%=item.id%>">trade</a>
+                                <a href="/trade/<%=item.id%>">Trade</a>
                             </td>
                         </tr>
                         <%});%>
