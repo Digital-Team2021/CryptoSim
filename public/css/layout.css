@@ -57,10 +57,11 @@
  }
  .rl{
         display: flex;
-       flex-direction:column;
-       justify-content:space-evenly;  
+       flex-direction:row;
+       align-items: center;
+       justify-content:flex-end;  
        margin-right: 15px; 
-       width: 284px;
+       width: 370px;
        text-align: right;
       
  }
@@ -100,7 +101,7 @@
     
  }
  footer p{
-    font-size: 12px;
+    font-size: 14px;
 
  }
  .upperFotter{
@@ -115,12 +116,17 @@
  }
 
  .subDiscription{
-     display: flex;    
+     display: flex;
+     justify-content: center;
+     align-items: center;
      
+ }
+ .subDiscription img{
+     margin-right: 10px;
  }
  .fr{
 
-   font-size: 10px;
+   font-size: 14px;
      
  }
 
@@ -133,16 +139,18 @@
  }
  .ad{
     display: flex;
-    width: 490px;
+    width: 656px;
     justify-content: flex-end;
     text-align: right;
 }
 
 .rac{
     padding-right: 15px;
+    font-size: 14px;
 }
 
 .rac a{
+    
     padding-right: 15px;
 }
 .fit{
@@ -152,15 +160,16 @@
 }
 
 .contact h3{
-    margin-right: 13px;
+    font-size: 14px;
+    margin-right: 25px;
 }
 
-footer img{
+.fit img{
     margin: 0px 5px;
 }
 
 
-footer img:hover{
+.fit img:hover{
     transform: scale(2);
 }
 
@@ -263,13 +272,24 @@ footer img:hover{
     margin-top: 20px;
 }
 .mainNews h2{
-    font-size: larger;
+    font-size: x-large;
     font-weight: bolder;
     text-align: center;
-    color: white;
+    color: #CCEEFF;
     margin-bottom: 20px;
     background-color: rgb(70, 69, 69);
-    height: 30px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px 0.2px black;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-shadow: 2px 2px #7DA5F6;
+}
+
+.mainNews h2 img{
+    margin-right: 5px;
 }
 
 .mainNews li:hover{
@@ -278,19 +298,34 @@ footer img:hover{
     
 
 
-.mainNews a{
-    color: black;
-}
-
 /* .mainNews a:hover{
     color: #7b10b0;
 } */
 
 .mainNews li{
+    font-weight: bold;
     background-color: white;
+    border-radius: 5px;
+    box-shadow: 0  0 5px 0.2px black;
+
     text-align: left;
     margin-bottom: 10px;
     padding-left: 5px;
+}
+
+.mainNews li a:hover{
+
+    color: #CCEEFF;
+    text-shadow: 2px 2px #7DA5F6;
+
+}
+
+.mainNews li a{
+
+    margin-left: 10px;
+
+    color:#7DA5F6;
+
 }
 
 #newButton{
@@ -299,9 +334,22 @@ footer img:hover{
     position: relative;
     left: 20px;
     /* height: 25px; */
-    width: 15%;
-    border-radius: 3px;
-  font-size: 12px;
+   
+  width: 136px;
+  border-radius: 5px;
+  font-size: small;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+#newButton:hover{
+    background: #7b10b0;
+    cursor: pointer;
+}
+#LessButton:hover{
+    background: #7b10b0;
+    cursor: pointer;
+
 }
 
 #LessButton{
@@ -309,11 +357,11 @@ footer img:hover{
     color: white;
     position: relative;
     left: 20px;
-    /* height: 25px; */
-    width: 15%;
-    border-radius: 3px;
-   
-      font-size: 12px;
+    width: 136px;
+  border-radius: 5px;
+  font-size: small;
+  padding-top: 8px;
+  padding-bottom: 8px;
 }
 .marketPage{
      display: flex;
@@ -332,13 +380,12 @@ footer img:hover{
   color:white;
   /* padding: 2px 6px 2px 6px; */
   border: 1px solid rgb(70, 69, 69);
-  border-radius: 3px;
-  padding-left: 5px;
-  padding-right: 5px;
-  font-size: 12px;
+  border-radius: 5px;
+  width: 136px;
+padding-top: 8px;
+padding-bottom: 8px;
+  font-size: small;
  justify-content: center;
- height:25px;
- line-height: 25px;
   
 
 }
@@ -349,18 +396,17 @@ footer img:hover{
   background-color: rgb(70, 69, 69);
   color:white;
   border: 1px solid rgb(70, 69, 69);
-  border-radius: 3px;
-  padding-left: 5px;
-  padding-right: 5px;
-  font-size: 12px;
+  border-radius: 5px;
+  width: 136px;
+padding-top: 8px;
+padding-bottom: 8px;
+  font-size: small;
  justify-content: center;
- height:25px;
- line-height: 25px;
+
    
 }
 .marketPage a:hover{
-    font-weight: bold;
-    background-color: gray;
+    background: #7b10b0;
 }
 
 
@@ -423,7 +469,7 @@ footer img:hover{
 .updatebtn button{
     background-color: rgb(70, 69, 69);
     color: white;
-    border-radius: 3px;
+    border-radius: 5px;
     font-size: small;
     padding-top: 8px;
     padding-bottom: 8px;
@@ -439,7 +485,7 @@ footer img:hover{
 .deletebtn button{
     background-color: rgb(70, 69, 69);
     color: white;
-    border-radius: 3px;
+    border-radius: 5px;
     font-size: small;
     padding-top: 8px;
     padding-bottom:8px;
@@ -461,6 +507,12 @@ footer img:hover{
     display: flex;
     width: 35%;
     margin: auto;
+}
+
+.btn button:hover{
+    background: #7b10b0;
+    cursor: pointer;
+    
 }
 
 #updateForm{
@@ -496,8 +548,6 @@ footer img:hover{
     padding-top:5px;
     padding-bottom:5px;
     text-align: center;
-
-
     margin-top: 5px;
 
 
@@ -511,6 +561,12 @@ footer img:hover{
     border-radius: 5px;
     box-shadow: 0  0 5px 0.2px black;
 
+}
+
+.updateForm button:hover{
+
+    background: #7b10b0;
+    cursor: pointer;
 
 }
 .updateForm label{
@@ -561,6 +617,7 @@ tr:hover{
     justify-content: center;
     text-align: center;
     margin-top: 50px;
+    margin-bottom: 150px;
 }
 
 .msgimg img{
