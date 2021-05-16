@@ -21,23 +21,30 @@
     </div>
 
     
-        <main>       
+        <main>  
+            
+            <div class="fixedimg">
+               <a target="_blank" href="https://en.wikipedia.org/wiki/Ethereum"><img src="/assets/img/1main.png" alt=""></a> 
+                <a target="_blank"  class="middleimg" href="https://en.wikipedia.org/wiki/Bitcoin"><img  src="/assets/img/2main.jpg" alt=""></a>
+                <a target="_blank" href="https://cardano.org/"><img src="assets/img/3main.jpg" alt=""></a>
+
+            </div>
             
 
             <div class="mainNews">
                 <h2><img height="50" width="50" src="/assets/img/globe.png" alt=""> News</h2>
                 <ul class="firstNews">
-                    <% for(let i=0;i < 2;i ++){ %>
+                    <% for(let i=0;i < 4;i ++){ %>
                         <li> <h3><%= news[i].title %></h3>
-                            <a href="<%= news[i].url %>">
+                            <a target="_blank" href="<%= news[i].url %>">
                                 Read more
                             </a></li>
                         <% } %>
                 </ul>
                 <ul class="restNews">
-                    <% for(let i=2;i < 10;i ++){ %>
+                    <% for(let i=4;i < 8;i ++){ %>
                         <li class="news"><h3><%= news[i].title %></h3>
-                            <a href="<%= news[i].url %>">
+                            <a target="_blank" href="<%= news[i].url %>">
                                 Read more
                             </a></li>
                         <% } %>
