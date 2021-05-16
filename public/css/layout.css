@@ -292,6 +292,27 @@
     margin-right: 5px;
 }
 
+.firstNews{
+    display: flex;
+    justify-content: space-between;
+}
+
+.firstNews li{
+    width: 24%;
+    height: 100px;
+
+}
+
+.restNews{
+    display: flex;
+    justify-content: space-between;
+}
+
+.restNews li{
+    width: 24%;
+    height: 100px;
+}
+
 .mainNews li:hover{
     background: gray;
 }
@@ -657,6 +678,32 @@ tr:hover{
     height: 296px;
 }
 
+
+
+/* home page imgs  */
+
+.fixedimg{
+    display: flex;
+    width: 75%;
+    margin: auto;
+    flex-direction: row;
+    margin-top: 20px;
+    text-align: center;
+    justify-items: center;
+    justify-content: center;
+}
+
+.fixedimg img{
+    height: 170px;
+    width: 270px;
+    border: solid 2px ;
+    box-shadow: 0  0 5px 0.2px black;
+}
+
+.middleimg{
+    margin-right:20px ;
+    margin-left: 20px;
+}
 
 }
 
