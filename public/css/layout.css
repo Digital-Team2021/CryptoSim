@@ -299,7 +299,7 @@
 
 .firstNews li{
     width: 31%;
-    height: 100px;
+    height: 120px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -320,7 +320,7 @@
 
 .restNews li{
     width: 31%;
-    height: 100px;
+    height: 120px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
