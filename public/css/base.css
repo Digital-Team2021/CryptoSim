@@ -217,7 +217,7 @@ body {
 .tradeExchangeAndForms button:hover,
 .tradeExchangeAndForms button:active,
 .tradeExchangeAndForms button:focus {
-  background: gray;
+  background: #7b10b0;
 }
 
 /* -- Animated hrs -- */
@@ -323,7 +323,7 @@ body {
 }
 
 .regFormContainer input:last-child:hover{
-  background-color:gray;
+  background-color:#7b10b0;
   font-weight:bolder;
 }
 
