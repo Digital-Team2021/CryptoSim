@@ -354,6 +354,8 @@
     border-radius: 5px;
     box-shadow: 0  0 5px 0.2px black;
 
+    overflow: auto;
+
     text-align: left;
     margin-bottom: 10px;
     padding-left: 5px;
@@ -369,7 +371,6 @@
 .mainNews li a{
 
     margin-left: 10px;
-
     color:#7DA5F6;
 
 }
